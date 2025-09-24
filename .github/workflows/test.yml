@@ -37,7 +37,11 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+          components: rustfmt, clippy
           override: true
+
+      - name: Clippy
+        run: cargo clippy -- -D warnings
 
       - name: Build
         run: cargo build

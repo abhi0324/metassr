@@ -20,8 +20,8 @@ RUN apt-get update \
 # Set working directory to root
 WORKDIR /root
 
-# Install MetaCall in debug mode (TODO: -s -- --debug)
-RUN wget -O - https://raw.githubusercontent.com/metacall/install/master/install.sh | bash
+# Install MetaCall in debug mode
+RUN wget -O - https://raw.githubusercontent.com/metacall/install/master/install.sh | bash -s -- --debug
 
 # Copy the project
 COPY . .
@@ -31,4 +31,3 @@ RUN cargo build \
 	&& cd ./tests/web-app \
 	&& npm install \
 	&& npm run build
-
