@@ -34,9 +34,14 @@ impl AsyncExec for Runner {
             _enable_http_logging: self.allow_http_debug,
             root_path: current_dir()?,
             running_type,
+            mode: metassr_server::ServerMode::Production,
+            rebuilder: None,
         };
 
-        info!("Running your web application on {:?} mode", running_type);
+        info!(
+            message = "Running your web application",
+            mode = running_type.to_string()
+        );
 
         Server::new(server_configs).run().await?;
         Ok(())
