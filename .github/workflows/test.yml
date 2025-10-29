@@ -1,4 +1,4 @@
-name: Test
+name: Tests
 
 on:
   push:
@@ -15,8 +15,8 @@ env:
   DOCKER_BUILDKIT: 1
 
 jobs:
-  test:
-    name: Test
+  unit-test:
+    name: Unit Test
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,6 +30,19 @@ jobs:
 
       - name: Run Unit Tests
         run: docker build --target unit_test_${{ matrix.build-type }} -f Dockerfile.dev -t metacall/metassr:unit .
+
+  integration-test:
+    name: Integration Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build-type: [debug, release]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Bundler Integration Tests
         run: docker build --target integration_test_${{ matrix.build-type }} -f Dockerfile.dev -t metacall/metassr:integration .
