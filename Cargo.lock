@@ -772,7 +772,7 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
 name = "logger"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "chrono",
  "nu-ansi-term 0.50.0",
@@ -813,9 +813,9 @@ dependencies = [
 
 [[package]]
 name = "metacall"
-version = "0.5.1"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6f06da67fa5540d1c0554bf40165a3c30bff05c1c876e43be519e83aeee24415"
+checksum = "3a4426ccc6c29749c4ef02c68a2ff075770b02a2a6bdc04c03d3101483dd95c9"
 dependencies = [
  "metacall-inline",
  "metacall-sys",
@@ -833,13 +833,13 @@ dependencies = [
 
 [[package]]
 name = "metacall-sys"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c6890fa4fc6790993c82dfd736389499d6c71c7ae798dc9bc8cbabf5df68611"
+checksum = "90573f16c6ecec86326c251dba0651b0cdc67aae1885970a8ea457df25302b9f"
 
 [[package]]
 name = "metassr"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "axum",
@@ -848,7 +848,7 @@ dependencies = [
  "inquire",
  "lazy_static",
  "logger",
- "metacall 0.5.1",
+ "metacall 0.5.3",
  "metacall-sys",
  "metassr-build",
  "metassr-bundler",
@@ -872,11 +872,11 @@ dependencies = [
 
 [[package]]
 name = "metassr-build"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "lazy_static",
- "metacall 0.5.1",
+ "metacall 0.5.3",
  "metacall-sys",
  "metassr-bundler",
  "metassr-fs-analyzer",
@@ -888,11 +888,11 @@ dependencies = [
 
 [[package]]
 name = "metassr-bundler"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "lazy_static",
- "metacall 0.5.1",
+ "metacall 0.5.3",
  "metacall-sys",
  "metassr-utils",
  "serde_json",
@@ -901,14 +901,14 @@ dependencies = [
 
 [[package]]
 name = "metassr-cli"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "axum",
  "clap",
  "inquire",
  "logger",
- "metacall 0.5.1",
+ "metacall 0.5.3",
  "metassr-build",
  "metassr-create",
  "metassr-server",
@@ -921,7 +921,7 @@ dependencies = [
 
 [[package]]
 name = "metassr-create"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "walkdir",
@@ -929,7 +929,7 @@ dependencies = [
 
 [[package]]
 name = "metassr-fs-analyzer"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "metassr-utils",
@@ -939,14 +939,14 @@ dependencies = [
 
 [[package]]
 name = "metassr-html"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
 ]
 
 [[package]]
 name = "metassr-server"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "axum",
@@ -972,7 +972,7 @@ dependencies = [
 
 [[package]]
 name = "metassr-utils"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "serde",
@@ -981,7 +981,7 @@ dependencies = [
 
 [[package]]
 name = "metassr-watcher"
-version = "0.0.1-alpha"
+version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "notify",

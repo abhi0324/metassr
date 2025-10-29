@@ -88,7 +88,7 @@ const defaultConfig = {
 function createBundlerConfig(entry, dist) {
     return {
         ...defaultConfig, // Merge with the default config
-        entry: safelyParseJSON(entry) ?? entry,
+        entry: safelyParseJSON(entry) || entry,
         output: dist ? {
             ...defaultConfig.output,
             path: join(process.cwd(), dist)
@@ -121,7 +121,7 @@ function createBundlerConfig(entry, dist) {
  * @param {string} dist - The distribution path where bundled files will be output.
  * @returns {Promise} - Resolves when bundling is successful, rejects if there is an error.
  */
-async function web_bundling(entry, dist) {
+async function webBundling(entry, dist) {
     // Create a bundler instance using the config and parameters
     const compiler = rspack(createBundlerConfig(entry, dist));
 
@@ -132,9 +132,9 @@ async function web_bundling(entry, dist) {
                 return reject(new Error(`Bundling failed: ${error.message}`));
             }
 
-            if (stats?.hasErrors()) {
+            if (stats && stats.hasErrors()) {
                 const info = stats.toJson();
-                const errors = info.errors?.map(e => e.message).join('\n') || 'Unknown compilation errors';
+                const errors = info.errors ? info.errors.map(e => e.message).join('\n') : 'Unknown compilation errors';
                 return reject(new Error(`Compilation errors:\n${errors}`));
             }
 
@@ -144,5 +144,5 @@ async function web_bundling(entry, dist) {
 }
 
 module.exports = {
-    web_bundling // Export the web_bundling function to call it via metacall
+    web_bundling: webBundling // Export the web_bundling function to call it via metacall
 };
