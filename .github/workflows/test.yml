@@ -54,6 +54,7 @@ jobs:
           docker rm metassr-integration-artifacts
 
       - name: Upload Bundler Artifacts
+        if: matrix.build-type == 'release'
         uses: actions/upload-artifact@v4
         with:
           name: bundler-dist-output
