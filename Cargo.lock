@@ -804,18 +804,9 @@ checksum = "78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3"
 
 [[package]]
 name = "metacall"
-version = "0.4.4"
+version = "0.5.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d57955cb0a466cdb73af367d41a1f4983fc73bac4c7ec755edeacf4d3a1cedec"
-dependencies = [
- "metacall-inline",
-]
-
-[[package]]
-name = "metacall"
-version = "0.5.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3a4426ccc6c29749c4ef02c68a2ff075770b02a2a6bdc04c03d3101483dd95c9"
+checksum = "e4b4dca40b8e62399b8ccd47aece9e1b8712c82e1f4d271c8adf32d0b3b58975"
 dependencies = [
  "metacall-inline",
  "metacall-sys",
@@ -833,9 +824,9 @@ dependencies = [
 
 [[package]]
 name = "metacall-sys"
-version = "0.1.2"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90573f16c6ecec86326c251dba0651b0cdc67aae1885970a8ea457df25302b9f"
+checksum = "5691669137ed8dd625ba30c68a8f174f6d9aee1137445065aea50798cfda4e92"
 
 [[package]]
 name = "metassr"
@@ -848,7 +839,7 @@ dependencies = [
  "inquire",
  "lazy_static",
  "logger",
- "metacall 0.5.3",
+ "metacall",
  "metacall-sys",
  "metassr-build",
  "metassr-bundler",
@@ -871,12 +862,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "metassr-api-handler"
+version = "1.0.0-alpha"
+dependencies = [
+ "anyhow",
+ "axum",
+ "metacall",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+]
+
+[[package]]
 name = "metassr-build"
 version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "lazy_static",
- "metacall 0.5.3",
+ "metacall",
  "metacall-sys",
  "metassr-bundler",
  "metassr-fs-analyzer",
@@ -892,7 +896,7 @@ version = "1.0.0-alpha"
 dependencies = [
  "anyhow",
  "lazy_static",
- "metacall 0.5.3",
+ "metacall",
  "metacall-sys",
  "metassr-utils",
  "serde_json",
@@ -908,7 +912,7 @@ dependencies = [
  "clap",
  "inquire",
  "logger",
- "metacall 0.5.3",
+ "metacall",
  "metacall-sys",
  "metassr-build",
  "metassr-create",
@@ -953,7 +957,8 @@ dependencies = [
  "axum",
  "chrono",
  "futures-util",
- "metacall 0.4.4",
+ "metacall",
+ "metassr-api-handler",
  "metassr-build",
  "metassr-fs-analyzer",
  "metassr-utils",

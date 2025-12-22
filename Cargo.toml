@@ -55,6 +55,7 @@ members = [
     "crates/metassr-bundler",
     "crates/metassr-fs-analyzer",
     "crates/metassr-watcher",
+    "crates/metassr-api-handler",
 ]
 
 [workspace.package]
