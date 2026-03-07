@@ -201,7 +201,11 @@ impl DirectoryAnalyzer for DistDir {
                 match e.ok() {
                     Some(e)
                         if e.path().is_file()
-                            && exts.contains(&e.path().extension().unwrap().to_str().unwrap()) =>
+                            && e.path()
+                                .extension()
+                                .and_then(|ext| ext.to_str())
+                                .map(|ext| exts.contains(&ext))
+                                .unwrap_or(false) =>
                     {
                         Some(e) // Include files that are either JS or CSS
                     }
@@ -366,6 +370,13 @@ mod tests {
         fs::write(
             test_dir.join("pages").join("unsupported.txt"),
             "Unsupported file",
+        )
+        .unwrap();
+
+        // Create a file without an extension
+        fs::write(
+            test_dir.join("pages").join("extensionless"),
+            "Extensionless file",
         )
         .unwrap();
 
